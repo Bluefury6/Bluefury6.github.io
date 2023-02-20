@@ -3,32 +3,38 @@
 <html>
     <style>
         .siteHeader {
-            background-color: rgb(149, 186, 255);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(75, 138, 255);
             position: absolute;
             z-index: 100;
             position: fixed;
             top: 0px;
             width: 100%;
+            margin-left: 0px;
+            font-size: large;
+            display: inline-block;
+            max-height: 50px;;
         }
 
-        a:hover:not(.active) {
-            background-color: rgb(119, 155, 225);
+        .RefButton:hover {
+            background-color: rgb(55, 118, 235);
         }
 
-        a {
+        .RefButton {
             display: block;
             float: left;
             padding: 14px 16px;
             text-decoration: none;
             color: black;
+            width: auto;
         }
     </style>
 
     <head>
         <div class="siteHeader">
-            <a href="desmos_home.html">Home</a>
-            <a href="desmos_about.html" style="background-color: rgb(55, 118, 235);">About</a>
-            <a href="desmos_graphs.html">Graphs</a>
+            <a class="RefButton" href="desmos_home.html">Home</a>
+            <a class="RefButton" href="desmos_about.html" style="background-color: rgb(55, 118, 235);">About</a>
+            <a class="RefButton" href="desmos_graphs.html">Graphs</a>
         </div>
     </head>
 
