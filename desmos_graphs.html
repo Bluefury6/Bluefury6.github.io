@@ -163,12 +163,15 @@
         
         <div class="graphTitle" id="graphTitle">
             <image src="GraphBG3.png" class="bgImage">
-                <div class="title" id="title"></div>
+                <div class="title" id="title">Desmos Graphs</div>
             </div>
             
         </div>
 
-        <div class="graphDescription" id="graphDescription"></div>
+        <div class="graphDescription" id="graphDescription">
+            <h1 id="descriptionHead"></h1>
+            <h2 id="descriptionTrue"></h2>
+        </div>
 
         <div class="calcContainer">
             <div class="calculator" id="calculator" style="height: 950px;"></div>
@@ -201,14 +204,18 @@
             const calculator = Desmos.GraphingCalculator(elt, {lockViewport: true, expressions: false, settingsMenu: false})
             let graphURL = graphs[0].API_Link
             $.getJSON(graphURL).done(data => calculator.setState(data.state))
-            document.getElementById("title").innerHTML = graphs[0].Name.toString()
-            document.getElementById("graphDescription").innerHTML = graphs[0].Description.toString()
+            document.getElementById("descriptionHead").innerHTML = graphs[0].Name.toString()
+            document.getElementById("descriptionTrue").innerHTML = graphs[0].Description.toString()
 
             const confirm = (id) => {
                 graphURL = graphs[id].API_Link
                 $.getJSON(graphURL).done(data => calculator.setState(data.state))
-                document.getElementById("title").innerHTML = graphs[id].Name.toString()
-                document.getElementById("graphDescription").innerHTML = graphs[id].Description.toString()
+                document.getElementById("descriptionTrue").innerHTML = graphs[id].Description.toString()
+                
+                if (graphs[id].Name.toString() != 'No Graph Selected') {
+                    document.getElementById("descriptionHead").innerHTML = `What is ${graphs[id].Name.toString()}`
+                } else {document.getElementById("descriptionHead").innerHTML = graphs[id].Name.toString()}
+
             }
         
         </script>
