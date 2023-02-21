@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+    <style>
+
+        .siteHeader {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            z-index: 100;
+            width: 100%;
+            font-size: large;
+            display: flex;
+            max-height: 50px;
+            border-bottom: 3px solid black;
+            justify-content: center;
+        }
+
+        .RefButton:hover {
+            color: lightskyblue;
+        }
+
+        .RefButton {
+            display: block;
+            float: left;
+            padding: 14px 55px;
+            text-decoration: none;
+            color: black;
+            width: auto;
+            align-self: center;
+        }
+
+        button {
+            font-size: large;
+            border: 0px solid black;
+            background-color: transparent;
+            outline: none;
+            padding: 0px 0px;
+        }
+        
+        .selectBtn {
+            background-color: transparent;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+        }
+
+        .selectBtn:hover {
+            color: lightskyblue;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ConfirmOverlay {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ConfirmOverlay:hover .selectContent {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .selectContent {
+            display: none;
+            position: absolute;
+            background-color: white;
+            z-index: 1;
+            top: 49px;
+            border-left: 3px solid black;
+            border-bottom: 3px solid black;
+            border-right: 3px solid black;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .selectContent a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .selectContent a:hover {
+            color: lightskyblue;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .calculator {
+            align-content: center;
+            width: auto;
+            margin: 20px;
+            border: 6px solid black;
+            border-radius: 5px;
+        }
+
+        .graphTitle {
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            margin-top: 50px;
+            margin-bottom: 0px;
+            text-align: center;
+            font-size: 120px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .title {
+            position: absolute;
+            text-align: center;
+            top: 40%;
+            bottom: 0px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            max-height: fit-content;
+        }
+
+        .bgImage {
+            border-bottom: 3px solid black;
+            width: 100%;
+            opacity: 0.75;
+        }
+
+        .graphDescription {
+            font-family: Arial, Helvetica, sans-serif;
+            padding-left: 15%;
+            padding-top: 0px;
+        }
+
+    </style>
+    
+    <head style="padding: 0; margin: 0;">
+
+        <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+        <div class="siteHeader">
+            <a class="RefButton" href="desmos_home.html">Home</a>
+            <a class="RefButton" href="desmos_about.html">About</a>
+            <a class="RefButton" href="desmos_graphs.html" style="color: lightskyblue;">Graphs</a>
+            
+            <div class="ConfirmOverlay">
+                <button class="RefButton">Select Graph</button>
+                <div class="selectContent">               
+                    <a onclick="confirm(0)">None</a>
+                    <a onclick="confirm(1)">Graphability</a>
+                    <a onclick="confirm(2)">Desmos Pong</a>
+                </div>
+            </div>
+        </div>
+
+    </head>
+    
+    <body style="background-color: white; margin: 0px;">
+        
+        <div class="graphTitle" id="graphTitle">
+            <image src="GraphBG3.png" class="bgImage">
+                <div class="title" id="title">Desmos Graphs</div>
+            </div>
+            
+        </div>
+
+        <div class="graphDescription" id="graphDescription">
+            <h1 id="descriptionHead"></h1>
+            <h2 id="descriptionTrue"></h2>
+        </div>
+
+        <div class="calcContainer">
+            <div class="calculator" id="calculator" style="height: 950px;"></div>
+        </div>
+
+        <script>
+            
+            const graphs = [
+                {
+                    Name: "No Graph Selected",
+                    Description: "",
+                    API_Link: "https://www.desmos.com/calculator/p95qpcz1va",
+                    True_Link: "https://www.desmos.com/calculator/p95qpcz1va"
+                },
+                {
+                    Name: "Graphability",
+                    Description: "Graphability Description",
+                    API_Link: "https://www.desmos.com/calculator/iqic0fv6qh",
+                    True_Link: "https://www.desmos.com/calculator/fo96wobara"
+                },
+                {
+                    Name: "Desmos Pong",
+                    Description: "Pong Description",
+                    API_Link: "https://www.desmos.com/calculator/2nd4g1javm",
+                    True_Link: "https://www.desmos.com/calculator/2nd4g1javm"
+                }
+            ]
+
+            const elt = $("#calculator")[0]
+            const calculator = Desmos.GraphingCalculator(elt, {lockViewport: true, expressions: false, settingsMenu: false})
+            let graphURL = graphs[0].API_Link
+            $.getJSON(graphURL).done(data => calculator.setState(data.state))
+            document.getElementById("descriptionHead").innerHTML = graphs[0].Name.toString()
+            document.getElementById("descriptionTrue").innerHTML = graphs[0].Description.toString()
+
+            const confirm = (id) => {
+                graphURL = graphs[id].API_Link
+                $.getJSON(graphURL).done(data => calculator.setState(data.state))
+                document.getElementById("descriptionTrue").innerHTML = graphs[id].Description.toString()
+                
+                if (graphs[id].Name.toString() != 'No Graph Selected') {
+                    document.getElementById("descriptionHead").innerHTML = `What is ${graphs[id].Name.toString()}`
+                } else {document.getElementById("descriptionHead").innerHTML = graphs[id].Name.toString()}
+
+            }
+        
+        </script>
+          
+    </body>
+    
+</html>
