@@ -155,11 +155,35 @@ HEAD:Desmos_graphs.html
             padding-top: 0px;
         }
 
+        .recents {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            font-size: 50;
+        }
+
+        .RecentProjects {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        .column {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
     </style>
 
     <head>
 
-        <image src="NatesGraphsLogo2.png" class="Headerimg" style="height: 50px; left: 0;"></image>
+        <a href="index.html"><image src="NatesGraphsLogo2.png" class="Headerimg" style="height: 50px; left: 0;"></image></a>
 
         <div class="siteHeader">
             <a class="RefButton" href="index.html" style="color: rgb(50,187.5,200);">Home</a>
@@ -168,7 +192,42 @@ HEAD:Desmos_graphs.html
         </div>
     </head>
 
-    <body>
+    <body style="background-color: white; margin: 0px;">
+        <image src="NatesGraphsLogoMain.png"style="left: 0; width: 100%; border-bottom: 5px solid black;"></image>
+
+        <h1 class="recents">
+            Recent Projects
+        </h1>
+
+        <div class="RecentProjects">
+            <div class="column">    
+                <div id="Recent1" style="font-size: x-large;"></div>
+                <div id="ProjectImage1" style="width: 100%;;"></div>
+            </div>
+            
+            <div class="column">    
+                <div id="Recent2" style="font-size: x-large;"></div>
+                <div id="ProjectImage2" style="width: 100%;"></div></div>
+            </div>
+        
+        </div>
+
+        <script src="graphs.js"></script>
+        <script>
+            let length = graphs.length - 1
+            console.log(length)
+            document.getElementById("Recent1").innerHTML = graphs[length].Name.toString()
+            document.getElementById("ProjectImage1").innerHTML = `
+            <a href="desmos_graphs.html")><image src="${graphs[length].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            `
+            
+            document.getElementById("Recent2").innerHTML = graphs[length - 1].Name.toString()
+            document.getElementById("ProjectImage2").innerHTML = `
+            <a href="desmos_graphs.html")><image src="${graphs[length - 1].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            `
+        </script>
+
+        <div style="padding-top: 100px"></div>
 
     </body>
 </html>
