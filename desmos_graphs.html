@@ -17,8 +17,22 @@
             justify-content: center;
         }
 
+        .Headerimg {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            z-index: 101;
+            font-size: large;
+            display: flex;
+            max-height: 49px;
+            border-bottom: 3px solid black;
+            justify-content: left;
+            padding-left: 10%;
+        }
+
         .RefButton:hover {
-            color: lightskyblue;
+            color: rgb(50,187.5,200);
         }
 
         .RefButton {
@@ -51,7 +65,7 @@
         }
 
         .selectBtn:hover {
-            color: lightskyblue;
+            color: rgb(50,187.5,200);
             color: white;
             padding: 16px;
             font-size: 16px;
@@ -91,7 +105,7 @@
         }
 
         .selectContent a:hover {
-            color: lightskyblue;
+            color: rgb(50,187.5,200);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -130,7 +144,7 @@
         .bgImage {
             border-bottom: 3px solid black;
             width: 100%;
-            opacity: 1;
+            opacity: 100%;
         }
 
         .graphDescription {
@@ -146,10 +160,12 @@
         <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
-        <div class="siteHeader">
+        <image src="NatesGraphsLogo2.png" class="Headerimg" style="height: 50px; left: 0;"></image>
+
+        <div class="siteHeader">            
             <a class="RefButton" href="index.html">Home</a>
             <a class="RefButton" href="desmos_about.html">About</a>
-            <a class="RefButton" href="desmos_graphs.html" style="color: lightskyblue;">Graphs</a>
+            <a class="RefButton" href="desmos_graphs.html" style="color: rgb(50,187.5,200);">Graphs</a>
             
             <div class="ConfirmOverlay">
                 <button class="RefButton">Select Graph</button>
@@ -157,6 +173,7 @@
                     <a onclick="confirm(0)">None</a>
                     <a onclick="confirm(1)">Graphability</a>
                     <a onclick="confirm(2)">Desmos Pong</a>
+                    <a onclick="confirm(3)">Color Wheel</a>
                 </div>
             </div>
         </div>
@@ -166,7 +183,7 @@
     <body style="background-color: white; margin: 0px;">
         
         <div class="graphTitle" id="graphTitle">
-            <image src="DesmosGraphBG2.png" class="bgImage">
+            <image src="DesmosGraphHeader.png" class="bgImage">
         </div>
 
         <div class="graphDescription" id="graphDescription">
@@ -198,6 +215,12 @@
                     Description: "Pong Description",
                     API_Link: "https://www.desmos.com/calculator/2nd4g1javm",
                     True_Link: "https://www.desmos.com/calculator/2nd4g1javm"
+                },
+                {
+                    Name: "Color Wheel",
+                    Description: "Color Wheel Description",
+                    API_Link: "https://www.desmos.com/calculator/lqibd1xi9e",
+                    True_Link: "https://www.desmos.com/calculator/tot7i3q2cm"
                 }
             ]
 
