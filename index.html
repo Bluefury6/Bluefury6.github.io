@@ -196,17 +196,32 @@ HEAD:Desmos_graphs.html
         <image src="NatesGraphsLogoMain.png"style="left: 0; width: 100%; border-bottom: 5px solid black;"></image>
 
         <h1 class="recents">
+            Featured Graph:
+        </h1>
+
+        <div class="RecentProjects">
+            <div class="column">
+                <div id="Featured" style="font-size: x-large; padding-bottom: 15px; font-weight: 550; padding-left: 20%;"></div>
+                <div id="FeaturedImage"  style="padding-left: 20%;"></div>
+            </div>
+
+            <div class="column" style="max-width: 50%;">
+                <div id="FeaturedDescription" style="font-size: x-large; padding-bottom: 15px; padding-top: 10%; padding-right: 15%;"></div>
+            </div>
+        </div>
+
+        <h1 class="recents">
             Recent Projects
         </h1>
 
         <div class="RecentProjects">
             <div class="column">    
-                <div id="Recent1" style="font-size: x-large;"></div>
-                <div id="ProjectImage1" style="width: 100%;;"></div>
+                <div id="Recent1" style="font-size: x-large; padding-bottom: 15px; font-weight: 550;"></div>
+                <div id="ProjectImage1" style="width: 100%;"></div>
             </div>
             
             <div class="column">    
-                <div id="Recent2" style="font-size: x-large;"></div>
+                <div id="Recent2" style="font-size: x-large; padding-bottom: 15px; font-weight: 550;"></div>
                 <div id="ProjectImage2" style="width: 100%;"></div></div>
             </div>
         
@@ -214,17 +229,35 @@ HEAD:Desmos_graphs.html
 
         <script src="graphs.js"></script>
         <script>
+
+            let featured = 2;
             let length = graphs.length - 1
-            console.log(length)
+            let i = Math.ceil(length*Math.random())
+
+            while (graphs[i].Feature === false || i === length || i === length - 1) {
+                console.log(i)
+                i = Math.ceil(length*Math.random())
+            }
+
+            featured = i;
+            
             document.getElementById("Recent1").innerHTML = graphs[length].Name.toString()
             document.getElementById("ProjectImage1").innerHTML = `
-            <a href="desmos_graphs.html?graph=${length}")><image src="${graphs[length].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            <a href="desmos_graphs.html?graph=${length}")><image src="${graphs[length].Image_Link}" style="border: 5px solid black; border-radius: 5px; max-width: 100%; height: auto;"></image></a>
             `
             
             document.getElementById("Recent2").innerHTML = graphs[length - 1].Name.toString()
             document.getElementById("ProjectImage2").innerHTML = `
-            <a href="desmos_graphs.html?graph=${length - 1}")><image src="${graphs[length - 1].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            <a href="desmos_graphs.html?graph=${length - 1}")><image src="${graphs[length - 1].Image_Link}" style="border: 5px solid black; border-radius: 5px; max-width: 100%; height: auto;"></image></a>
             `
+            
+            document.getElementById("Featured").innerHTML = graphs[featured].Name
+            document.getElementById("FeaturedImage").innerHTML = `
+            <a href="desmos_graphs.html?graph=${featured}")><image src="${graphs[featured].Image_Link}" style="border: 5px solid black; border-radius: 5px; max-width: 100%; height: auto;"></image></a>
+            `
+
+            document.getElementById("FeaturedDescription").innerHTML = graphs[featured].Description
+
         </script>
 
         <div style="padding-top: 100px"></div>
