@@ -25,13 +25,20 @@ const graphs = [
         Description: "Color Wheel Description",
         API_Link: "https://www.desmos.com/calculator/tot7i3q2cm",
         Image_Link: "ColorWheelGraph.png",
-        Feature: false
+        Feature: true
     },
     {
         Name: "Star Simulator V.1",
         Description: "Color Wheel Description",
         API_Link: "https://www.desmos.com/calculator/os1mqchwd5",
         Image_Link: "StarSimulatorV.1Graph.png",
+        Feature: true
+    },
+    {
+        Name: "Bouyancy Simulator",
+        Description: "This graph was an attempt to simulate a block falling into water, as my final project for AP physics. However, it lacks significant realism, as the block moves rather quickly, and no energy is ever lost due to air or water resistance. The block also will correct for variables being changed mid-flight. On the other hand, I think that the math for the heights is somewhat correct...",
+        API_Link: "https://www.desmos.com/calculator/12wfgnwva3",
+        Image_Link: "BouyancySimulatorGraph.png",
         Feature: true
     }
 ]
