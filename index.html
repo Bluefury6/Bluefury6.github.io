@@ -218,12 +218,12 @@ HEAD:Desmos_graphs.html
             console.log(length)
             document.getElementById("Recent1").innerHTML = graphs[length].Name.toString()
             document.getElementById("ProjectImage1").innerHTML = `
-            <a href="desmos_graphs.html")><image src="${graphs[length].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            <a href="desmos_graphs.html?graph=${length}")><image src="${graphs[length].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
             `
             
             document.getElementById("Recent2").innerHTML = graphs[length - 1].Name.toString()
             document.getElementById("ProjectImage2").innerHTML = `
-            <a href="desmos_graphs.html")><image src="${graphs[length - 1].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
+            <a href="desmos_graphs.html?graph=${length - 1}")><image src="${graphs[length - 1].Image_Link}" style="border: 5px solid black; height: 500px; border-radius: 5px;"></image></a>
             `
         </script>
 

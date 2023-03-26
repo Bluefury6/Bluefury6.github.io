@@ -26,7 +26,7 @@ const graphs = [
     {
         Name: "Star Simulator V.1",
         Description: "Color Wheel Description",
-        API_Link: "https://www.desmos.com/calculator/xgunumf7ti",
+        API_Link: "https://www.desmos.com/calculator/os1mqchwd5",
         Image_Link: "StarSimulatorV.1Graph.png"
     }
 ]
