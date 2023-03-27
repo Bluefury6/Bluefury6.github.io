@@ -22,14 +22,14 @@ const graphs = [
     },
     {
         Name: "Color Wheel",
-        Description: "Color Wheel Description",
+        Description: "This is the basic color wheel. You can change the brightness, saturation, and color. The selected color is in the top right, its inverse is in the bottom left, and the top left and bottom right are the averages across those sections of the color wheel.",
         API_Link: "https://www.desmos.com/calculator/tot7i3q2cm",
         Image_Link: "ColorWheelGraph.png",
         Feature: true
     },
     {
         Name: "Star Simulator V.1",
-        Description: "Color Wheel Description",
+        Description: "This is my first 3D graph, a simulation of the exoplanet 51 Pegasi b orbiting its star. I was inspired to make it by <a href="https://youtu.be/gai8dMA19Sw">this</a> amazing music video.",
         API_Link: "https://www.desmos.com/calculator/os1mqchwd5",
         Image_Link: "StarSimulatorV.1Graph.png",
         Feature: true
