@@ -29,7 +29,7 @@ const graphs = [
     },
     {
         Name: "Star Simulator V.1",
-        Description: 'This is my first 3D graph, a simulation of the exoplanet 51 Pegasi b orbiting its star. I was inspired to make it by <a href="https://www.desmos.com" style="text-decoration: none; color: rgb(50,187.5,200);">this</a> amazing music video.',
+        Description: 'This is my first 3D graph, a simulation of the exoplanet 51 Pegasi b orbiting its star. I was inspired to make it by <a href="https://www.desmos.com" style="text-decoration: none; color: rgb(50,187.5,200);">this here</a> amazing music video.',
         API_Link: "https://www.desmos.com/calculator/os1mqchwd5",
         Image_Link: "StarSimulatorV.1Graph.png",
         Feature: true
